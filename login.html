@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>테이블요소</h1>
+
+        <div>
+            <form action="https://www.naver.com" id="frm">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="아이디" id="id">
+                                <span id="idErrorMsg"></span>
+                            </td>
+                            <td rowspan="2">
+                                <button type="button" onclick="fnSbm()">로그인</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="password" placeholder="비밀번호" id="pw">
+                                <span id="pwErrorMsg"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <div>
+            <span>회원가입</span>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <span>아이디찾기</span>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <span>비밀번호 찾기</span>
+        </div>
+
+    </div>
+
+    <script>
+        function fnSbm() {
+            var frm = document.getElementById("frm");
+
+            var id = document.getElementById("id");
+            var uId = id.value;
+
+            var pw = document.getElementById("pw");
+            var uPw = pw.value;
+
+            if (uId == "") {
+            document.getElementById("idErrorMsg").innerText = "아이디를 입력해주세요.";
+             document.getElementById("pwErrorMsg").innerText = "";
+
+                id.focus();
+            } else if (uPw == "") {
+            document.getElementById("idErrorMsg").innerText = "";
+            document.getElementById("pwErrorMsg").innerText = "비밀번호를 입력해주세요.";
+                pw.focus();
+            } else {
+                frm.submit();
+            }
+        }
+    </script>
+</body></html>
